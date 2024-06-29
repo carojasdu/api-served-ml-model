@@ -1,8 +1,9 @@
+import joblib
 from sklearn.datasets import load_iris
-from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
-import joblib
+from sklearn.model_selection import train_test_split
+
 
 def train_and_evaluate_model():
     iris = load_iris()
@@ -24,12 +25,15 @@ def train_and_evaluate_model():
 
     return rf_classifier
 
+
 def save_model(model, filename):
     joblib.dump(model, filename)
 
+
 def main():
     model = train_and_evaluate_model()
-    save_model(model, 'model_weights.joblib')
+    save_model(model, "model_weights.joblib")
+
 
 if __name__ == "__main__":
     main()

@@ -49,4 +49,41 @@ Y para desplegar el contenedor localmente:
 docker run --name model-api-container -p 8000:8000 model-api
 ```
 
-con lo cual el contenedor queda desplegado localmente en el puerto 8000. En este punto puede acceder a [http://localhost:8000/docs](http://localhost:8000/docs) y ensayar los endpoints con diferentes valores (por ejemplo, los suminstrados en la sección anterior).
+con lo cual el contenedor queda desplegado localmente en el puerto 8000. En este punto puede acceder a [http://localhost:8000/docs](http://localhost:8000/docs) y ensayar los endpoints con diferentes valores.
+
+#### Pruebas para cada clase
+
+A continuación se dejan estructuras *.json* de una muestra de cada clase.
+
+Clase 0 (Setosa):
+
+```json
+{
+    "sepal_length": 5.1,
+    "sepal_width": 3.5,
+    "petal_length": 1.4,
+    "petal_width": 0.2
+}
+```
+
+Clase 1 (Versicolour):
+
+```json
+{
+    "sepal_length": 6.6,
+    "sepal_width": 3.0,
+    "petal_length": 4.4,
+    "petal_width": 1.4
+}
+```
+
+Clase 2 (Virginica):
+
+```json
+{
+    "sepal_length": 5.9,
+    "sepal_width": 3,
+    "petal_length": 5.1,
+    "petal_width": 1.8
+}
+```

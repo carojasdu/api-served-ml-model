@@ -35,7 +35,7 @@ siendo el valor presentado, el correspondiente a los valores anteriores. Se deci
 
 ### Contenerización
 
-El archivo `Dockerfile`, contiene la configuración para la creación de la imagen a partir de la cual crear el contenedor que despliega la API. Este requiere el archivo de pesos, el script de la API y el archivo de `requirements.txt` con las librerías necesarias. 
+El archivo `Dockerfile` contiene la configuración para la creación de la imagen a partir de la cual crear el contenedor que despliega la API. Este requiere el archivo de pesos, el script de la API y el archivo de `requirements.txt` con las librerías necesarias. 
 
 Se verificó la inclusión de las dependencias estrictamente necesarias para el despliegue de la aplicación, con el fin de garantizar eficiencia en el peso del contenedor. Además, se guardan los archivos dentro de una carpeta específica en el contenedor para mejores prácticas. 
 
@@ -45,17 +45,17 @@ Para crear la imagen corra:
 docker build -t model-api .
 ```
 
-Y para desplegar el contenedor localmente:
+ubicándose en la carpeta descomprimida. Y para desplegar el contenedor localmente:
 
 ```bash
 docker run --name model-api-container -p 8000:8000 model-api
 ```
 
-con lo cual el contenedor queda desplegado localmente en el puerto 8000. En este punto puede acceder a [http://localhost:8000/docs](http://localhost:8000/docs) y ensayar los endpoints con diferentes valores.
+con lo cual el contenedor queda desplegado en el puerto 8000. En este punto puede acceder a [http://localhost:8000/docs](http://localhost:8000/docs) y ensayar los endpoints con diferentes valores.
 
 #### Pruebas para cada clase
 
-A continuación se dejan estructuras *.json* de una muestra de cada clase.
+A continuación se dejan estructuras **.json** de una muestra de cada clase, extraídas del dataset Iris.
 
 Clase 0 (Setosa):
 

@@ -37,7 +37,7 @@ siendo el valor presentado, el correspondiente a los valores anteriores. Se deci
 
 ### Contenerización
 
-El archivo `Dockerfile` contiene la configuración para la creación de la imagen, a partir de la cual crear el contenedor que despliega la API. Este requiere el archivo de pesos, el script de la API y el archivo de `requirements.txt` con las librerías necesarias. 
+El archivo `Dockerfile`, contiene la configuración para la creación de la imagen a partir de la cual crear el contenedor que despliega la API. Este requiere el archivo de pesos, el script de la API y el archivo de `requirements.txt` con las librerías necesarias. 
 
 Se verificó la inclusión de las dependencias estrictamente necesarias para el despliegue de la aplicación, con el fin de garantizar eficiencia en el peso del contenedor. Además, se guardan los archivos dentro de una carpeta específica en el contenedor para mejores prácticas. 
 

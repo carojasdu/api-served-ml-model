@@ -6,15 +6,17 @@ Este documento contiene una descripción corta de los pasos llevados a cabo para
 
 ### Sobre el modelo de clasificación
 
-El modelo se entrenó en el archivo `model/model_generation.py`. Notando que esta parte no era la más fundamental en la prueba, no le dediqué mucho tiempo a indagar sobre el desempeño del mismo ni a intentar diferentes modelos y estrategias, sino que entrené un *RandomForest* para clasificación, que es adecuado para el número de datos y de características del dataset. Hice una partición de 80% entrenamiento y 20% prueba, obteniendo un accuracy del 100%, que de nuevo, debería verificarse con validación cruzada o metodologías adicionales de Machine Learning.
+El modelo se entrenó en el archivo `model/model_generation.py`. Notando que esta parte no era la más fundamental en la prueba, no se le dedicó mucho tiempo a indagar sobre el desempeño del mismo ni a intentar diferentes modelos y estrategias, sino que se entrenó un *RandomForest* para clasificación, que es adecuado para el número de datos y características del dataset. Se hizo una partición de 80% entrenamiento y 20% prueba, obteniendo un accuracy del 100%, que, de nuevo, debería verificarse con validación cruzada o metodologías adicionales de Machine Learning.
 
-Los pesos se guardaron en formato **joblib**, que se usa típicamente dado que optimiza el tamaño del archivo. Esto es una buena práctica, y resulta útil dado que anexaremos este archivo al contenedor de Docker.
+Los pesos se guardaron en formato **joblib**, que se usa típicamente dado que optimiza el tamaño del archivo. Esto es una buena práctica y resulta útil, debido a que anexaremos este archivo al contenedor de Docker.
 
 ### Sobre la API
 
 Se implementó la API con **FastAPI**, generándose un endpoint en `/` con un mensaje descriptivo de la misma, y otro en `/predict` con las especificaciones solicitadas. Gracias al framework usado, es posible acceder a `/docs` para ver una documentación técnica y estandarizada de los mismos, así como facilidades para ensayarlos.
 
-El endpoint de `/predict` es de comando **POST**, dado que la estructura **.json** debe anexarse como parte del **body** del **request**. Su estructura es de la siguiente forma:
+El endpoint de `/predict` es de comando **POST**, dado que la estructura **.json** debe anexarse como parte del **body** del **request**.
+
+Su estructura es de la siguiente forma:
 
 ```json
 {
@@ -31,11 +33,13 @@ donde los valores presentados corresponden a la primera muestra del dataset. En 
   "prediction": 0
 }
 ```
-donde el valor presentado corresponde a los valores anteriores, y se decide devolver la clase numérica para permitir mayor flexibilidad en el post-procesamiento de la salida de la API.
+siendo el valor presentado, el correspondiente a los valores anteriores. Se decide devolver la clase numérica, para permitir mayor flexibilidad en el post-procesamiento de la salida de la API.
 
-### Containerización
+### Contenerización
 
-El archivo `Dockerfile` contiene la configuración para la creación de la imagen a partir de la cual crear el contenedor que despliega la API. Este requiere el archivo de pesos, el script de la API y el archivo de `requirements.txt` con las librerías necesarias. Se verificó la inclusión de las dependencias estrictamente necesarias para el despliegue de la aplicación, con el fin de garantizar eficiencia en el peso del contenedor. Además, se guardan los archivos dentro de una carpeta específica en el contenedor para mejores prácticas. 
+El archivo `Dockerfile` contiene la configuración para la creación de la imagen, a partir de la cual crear el contenedor que despliega la API. Este requiere el archivo de pesos, el script de la API y el archivo de `requirements.txt` con las librerías necesarias. 
+
+Se verificó la inclusión de las dependencias estrictamente necesarias para el despliegue de la aplicación, con el fin de garantizar eficiencia en el peso del contenedor. Además, se guardan los archivos dentro de una carpeta específica en el contenedor para mejores prácticas. 
 
 Para crear la imagen corra:
 

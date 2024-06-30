@@ -1,10 +1,12 @@
 FROM python:3.12.4
 
-COPY requirements.txt .
+WORKDIR /api
 
-RUN pip install -r requirements.txt
+COPY ./requirements.txt /api/requirements.txt
 
-COPY model_weights.joblib .
-COPY api.py .
+RUN pip install -r /api/requirements.txt
+
+COPY ./model_weights.joblib /api/
+COPY ./api.py /api/   
 
 CMD ["fastapi", "run", "api.py", "--port", "8000"]

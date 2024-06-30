@@ -14,9 +14,7 @@ Los pesos se guardaron en formato **joblib**, que se usa típicamente dado que o
 
 Se implementó la API con **FastAPI**, generándose un endpoint en `/` con un mensaje descriptivo de la misma, y otro en `/predict` con las especificaciones solicitadas. Gracias al framework usado, es posible acceder a `/docs` para ver una documentación técnica y estandarizada de los mismos, así como facilidades para ensayarlos.
 
-El endpoint de `/predict` es de comando **POST**, dado que la estructura **.json** debe anexarse como parte del **body** del **request**.
-
-Su estructura es de la siguiente forma:
+La estructura del .json de entrada del endpoint `/predict` es de la siguiente forma:
 
 ```json
 {
